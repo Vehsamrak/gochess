@@ -1,0 +1,21 @@
+version: '3'
+services:
+  application:
+    container_name: gochess
+    restart: "no"
+    build: .
+    volumes:
+      - ../..:/go/src/github.com/vehsamrak/gochess
+      - /etc/localtime:/etc/localtime:ro
+      - gochess_dependencies:/go/src
+    entrypoint: /go/src/github.com/vehsamrak/gochess/build/package/entrypoint-dev.sh
+    ports:
+      - 7712:7712
+    networks:
+      - gochess
+
+volumes:
+  gochess_dependencies:
+
+networks:
+  gochess:
