@@ -1,6 +1,6 @@
 version: '3'
 services:
-  application:
+  gochess:
     container_name: gochess
     restart: "no"
     build: .
